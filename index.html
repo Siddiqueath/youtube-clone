@@ -10,9 +10,9 @@
   </head>
   <body>
 
-   <nav>
+   <header>
     <div id="start">
-      <button><img src="icons/menu.svg"></button>
+      <button><img id="burger-menu" src="icons/menu.svg"></button>
       <img id="app-logo" src="icons/yt-logo.svg">
     </div>
     <div id="center">
@@ -26,9 +26,9 @@
       <button><img src="icons/notification.svg"></button>
       <img src="icons/profile.jpg">
     </div>
-   </nav>
+   </header>
    
-   <aside>
+   <nav>
     <ul>
       <li id="active"><img src="icons/home.svg" /> <a href="#">Home</a></li>
       <li><img src="icons/explore.svg" /> <a href="#">Explore</a></li>
@@ -80,16 +80,34 @@
       <li><img src="icons/help.svg" /> <a href="#">Help</a></li>
       <li><img src="icons/feedback.svg" /> <a href="#">Send feedback</a></li>
     </ul>
-    
-    <p><small>About Press Copyright <br>
-    Contact us Creator Advertise<br>
-    Developers
-    <br><br>
-    Terms Privacy Policy & Safety <br>
-    How YouTube works <br>
-    Test new features</small></p>
-   </aside>
+    <footer>
+      <p>
+        <small>About Press Copyright <br>
+          Contact us Creator Advertise<br>
+          Developers
+          <br><br>
+          Terms Privacy Policy & Safety <br>
+          How YouTube works <br>
+          Test new features</small>
+      </p>
+    </footer>
+   </nav>
 
+   <main>
+    <div class="filters">
+      <button class="filter-options active">all</button>
+      <button class="filter-options">CSS</button>
+      <button class="filter-options">web development</button>
+      <button class="filter-options">node js</button>
+      <button class="filter-options">bootstrap</button>
+      <button class="filter-options">react</button>
+      <button class="filter-options">javascript</button>
+      <button class="filter-options">html</button>
+      <button class="filter-options">machine learning</button>
+      <button class="filter-options">trending</button>
+  </div>
+  <div class="video-container"></div>
+   </main>
    <script src="script.js"></script>
   </body>
 </html>

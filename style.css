@@ -1,22 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-/* nav > div:nth-child(even) {
-  background-color: lightcoral;
-}
-nav > div:nth-child(odd) {
-  background-color: lightpink;
-}
-nav {
-background-color: lightblue; 
-} */
-/* aside {
-  background-color: lightpink;
-}
-ul {
-  background-color: lightblue;
-}
-li {
-  background-color: lightgray;
-} */
+
+/* header > div:nth-child(even) { background-color: lightcoral; }
+header > div:nth-child(odd) { background-color: lightpink; }
+header { background-color: lightblue; } 
+nav { background-color: lightpink; }
+ul { background-color: lightblue; }
+li { background-color: lightgray; }
+main { background-color: lightsalmon;}
+.filters { background-color:lightgreen !important; }  */
 
 /* applies to all elements */
 * {
@@ -29,8 +20,8 @@ body {
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
 }
-/* applies to nav */
-nav {
+/* applies to header */
+header {
   min-width: fit-content;
   height: 56px;
   padding: 0px 16px;
@@ -43,13 +34,13 @@ nav {
   } 
 }
 /* applies to start, center, end */
-nav > div {
+header > div {
   display: flex;
   align-items: center;
   height: 40px;
 }
 /* applies to all button except with id attribute */
-nav button:not([id]) {
+header button:not([id]) {
   border: none;
   width: 40px;
   height: 40px;
@@ -57,7 +48,7 @@ nav button:not([id]) {
   cursor: pointer;
 }
 /* applies to all image inside button */
-nav button > img {
+header button > img {
   width: 25px;
   height: 25px;
 }
@@ -121,16 +112,29 @@ nav button > img {
   cursor: pointer;
 }
 
-/* applies to aside */
-aside {
-  max-width: 240px;
-  max-height: 100vh;
+/* applies to nav */
+nav {
+  float: left;
+  width: 240px;
+  height: calc(100vh - 61px);
   padding-left: 16px;
   overflow-y: scroll;
   margin-top: 5px;
 }
-/* applies to aside list */
-aside > ul > li {
+nav::-webkit-scrollbar { width: 8px;}
+nav::-webkit-scrollbar-thumb {
+  background-color: #828282; 
+  border-radius: 10px;
+  height: 100px;
+}
+@media  only screen and (max-width: 900px) {
+  nav {
+    width: 0px; 
+    overflow: hidden; /* hides scroll bar */
+  } 
+}
+/* applies to nav list */
+nav > ul > li {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -144,19 +148,110 @@ aside > ul > li {
 #active:hover {
   background-color: rgb(217, 217, 217);
 }
-aside > ul > li > a {
+nav > ul > li > a {
   text-decoration: none;
   color: black;
   font-size: 14px;
 }
-aside > ul > li > img {
+nav > ul > li > img {
   width: 28px; height: 28px;
   object-fit: cover;
   border-radius: 50%;
 }
 hr {opacity: 0.3; margin: 10px 0;}
-/* applies to aside footer */
-aside > p {
+
+nav > footer > p {
   padding-left: 9px;
   margin-top: 25px;
+}
+
+/* applies to main */
+main {
+  display: flex;
+  flex-flow: row wrap;
+  height: calc(100vh - 61px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  gap: 20px;
+  padding: 0 20px;
+}
+main::-webkit-scrollbar { width: 8px; }
+main::-webkit-scrollbar-thumb {
+  background-color: #828282; 
+  border-radius: 10px;
+  height: 100px;
+}
+/* applies to filter */
+.filters{
+  width: 100%;
+  height: 56px;
+  background: #fff;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+}
+.filter-options{
+  flex: 0 0 auto;
+  padding: 7px 15px;
+  border-radius: 50px;
+  background: #f0f0f0;
+  border: 1px solid #dbdbdb;
+  text-transform: capitalize;
+  margin-right: 10px;
+  color: #242424;
+  font-size: 14px;
+  cursor: pointer;
+}
+.filter-options.active{
+  color: #fff;
+  background: #242424;
+}
+/* applies to video-container */
+.video-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 15px;
+}
+.video {
+  flex: 1 1 250px;
+  width: 300px;
+  max-width: 300px;
+  height: 250px;
+}
+
+.thumbnail{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.content {
+  max-width: 100%;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+
+.channel-icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.title {
+  max-width: 100%;
+  height: 40px;
+  overflow: hidden;
+}
+
+.channel-name{
+  font-size: 14px;
+  margin: 2px 0;
+  color: #979797;
 }
