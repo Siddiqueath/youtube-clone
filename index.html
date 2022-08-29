@@ -1,99 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Youtube Clone</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
 
-   <header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youtube Clone</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body onresize="reportSize()">
+
+  <header>
     <div id="start">
       <button><img id="burger-menu" src="icons/menu.svg"></button>
       <img id="app-logo" src="icons/yt-logo.svg">
     </div>
     <div id="center">
-        <img src="icons/search.svg">
-        <input id="search-bar" type="text" placeholder="Search">
-        <button id="search-btn" type="submit"><img src="icons/search.svg"></button>
-        <button><img src="icons/mic.svg"></button>
+      <img src="icons/search.svg">
+      <input id="search-bar" type="text" placeholder="Search">
+      <button id="search-btn" type="submit"><img src="icons/search.svg"></button>
+      <button><img src="icons/mic.svg"></button>
     </div>
     <div id="end">
       <button><img src="icons/upload.svg"></button>
       <button><img src="icons/notification.svg"></button>
       <img src="icons/profile.jpg">
     </div>
-   </header>
-   
-   <nav>
-    <ul>
-      <li id="active"><img src="icons/home.svg" /> <a href="#">Home</a></li>
-      <li><img src="icons/explore.svg" /> <a href="#">Explore</a></li>
-      <li><img src="icons/mic.svg" /> <a href="#">Shorts</a></li>
-      <li><img src="icons/subscriptions.svg" /> <a href="#">Subscriptions</a></li>
-      <hr>
-      <li><img src="icons/library.svg" /> <a href="#">Library</a></li>
-      <li><img src="icons/history.svg" /> <a href="#">History</a></li>
-      <li><img src="icons/your_videos.svg" /> <a href="#">Your videos</a></li>
-      <li><img src="icons/watch_later.svg" /> <a href="#">Watch Later</a></li>
-      <li><img src="icons/clips.svg" /> <a href="#">Your clips</a></li>
-      <li><img src="icons/expand.svg" /> <a href="#">Show more</a></li>
-    </ul>
-    <hr>
-    <ul>
-      <li class="li-heading">SUBSCRIPTIONS</li>
-      <li><img src="icons/arvin_ash.jfif" /> <a href="#">Arvin Ash</a></li>
-      <li><img src="icons/mr_beast.jfif" /> <a href="#">MrBeast</a></li>
-      <li><img src="icons/mkbhd.jfif" /> <a href="#">Marques Brownlee</a></li>
-      <li><img src="icons/netflix.png" /> <a href="#">Netflix</a></li>
-      <li><img src="icons/apple.jpg" /> <a href="#">Apple</a></li>
-      <li><img src="icons/chess.jfif" /> <a href="#">Chess.com</a></li>
-      <li><img src="icons/teded.jfif" /> <a href="#">TED-Ed</a></li>
-      <li><img src="icons/expand.svg" /> <a href="#">Show more</a></li>
-    </ul>
-    <hr>
-    <ul>
-      <li class="li-heading">EXPLORE</li>
-      <li><img src="icons/films.svg" /> <a href="#">Films</a></li>
-      <li><img src="icons/gaming.svg" /> <a href="#">Gaming</a></li>
-      <li><img src="icons/live.svg" /> <a href="#">Live</a></li>
-      <li><img src="icons/fashion.svg" /> <a href="#">Fashion & beauty</a></li>
-      <li><img src="icons/learning.svg" /> <a href="#">Learning</a></li>
-      <li><img src="icons/sports.svg" /> <a href="#">Sport</a></li>
-    </ul>
-    <hr>
-    <ul>
-      <li class="li-heading">MORE FROM YOUTUBE</li>
-      <li><img src="icons/yt-premium.png" /> <a href="#">YouTube Premium</a></li>
-      <li><img src="icons/yt-creator.png" /> <a href="#">Creator Studio</a></li>
-      <li><img src="icons/yt-music.png" /> <a href="#">YouTube Music</a></li>
-      <li><img src="icons/yt-kids.png" /> <a href="#">YouTube Kids</a></li>
-      <li><img src="icons/yt-tv.png" /> <a href="#">YouTube TV</a></li>
-    </ul>
-    <hr>
-    <ul>
-      <li><img src="icons/settings.svg" /> <a href="#">Settings</a></li>
-      <li><img src="icons/report.svg" /> <a href="#">Report history</a></li>
-      <li><img src="icons/help.svg" /> <a href="#">Help</a></li>
-      <li><img src="icons/feedback.svg" /> <a href="#">Send feedback</a></li>
-    </ul>
-    <footer>
-      <p>
-        <small>About Press Copyright <br>
-          Contact us Creator Advertise<br>
-          Developers
-          <br><br>
-          Terms Privacy Policy & Safety <br>
-          How YouTube works <br>
-          Test new features</small>
-      </p>
-    </footer>
-   </nav>
+  </header>
 
-   <main>
+  <div class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+      <img id="burger-menu" style="width:25px; height:25px;" src="icons/menu.svg">
+    </a>
+    <nav class="overlay-content" class="scrollbar-w-8">
+      <ul>
+        <li id="active"><img src="icons/home.svg" /> <a href="#">Home</a></li>
+        <li><img src="icons/explore.svg" /> <a href="#">Explore</a></li>
+        <li><img src="icons/mic.svg" /> <a href="#">Shorts</a></li>
+        <li><img src="icons/subscriptions.svg" /> <a href="#">Subscriptions</a></li>
+        <hr>
+        <li><img src="icons/library.svg" /> <a href="#">Library</a></li>
+        <li><img src="icons/history.svg" /> <a href="#">History</a></li>
+        <li><img src="icons/your_videos.svg" /> <a href="#">Your videos</a></li>
+        <li><img src="icons/watch_later.svg" /> <a href="#">Watch Later</a></li>
+        <li><img src="icons/clips.svg" /> <a href="#">Your clips</a></li>
+        <li><img src="icons/expand.svg" /> <a href="#">Show more</a></li>
+      </ul>
+      <hr>
+      <ul>
+        <li class="li-heading">SUBSCRIPTIONS</li>
+        <li><img src="icons/arvin_ash.jfif" /> <a href="#">Arvin Ash</a></li>
+        <li><img src="icons/mr_beast.jfif" /> <a href="#">MrBeast</a></li>
+        <li><img src="icons/mkbhd.jfif" /> <a href="#">Marques Brownlee</a></li>
+        <li><img src="icons/netflix.png" /> <a href="#">Netflix</a></li>
+        <li><img src="icons/apple.jpg" /> <a href="#">Apple</a></li>
+        <li><img src="icons/chess.jfif" /> <a href="#">Chess.com</a></li>
+        <li><img src="icons/teded.jfif" /> <a href="#">TED-Ed</a></li>
+        <li><img src="icons/expand.svg" /> <a href="#">Show more</a></li>
+      </ul>
+      <hr>
+      <ul>
+        <li class="li-heading">EXPLORE</li>
+        <li><img src="icons/films.svg" /> <a href="#">Films</a></li>
+        <li><img src="icons/gaming.svg" /> <a href="#">Gaming</a></li>
+        <li><img src="icons/live.svg" /> <a href="#">Live</a></li>
+        <li><img src="icons/fashion.svg" /> <a href="#">Fashion & beauty</a></li>
+        <li><img src="icons/learning.svg" /> <a href="#">Learning</a></li>
+        <li><img src="icons/sports.svg" /> <a href="#">Sport</a></li>
+      </ul>
+      <hr>
+      <ul>
+        <li class="li-heading">MORE FROM YOUTUBE</li>
+        <li><img src="icons/yt-premium.png" /> <a href="#">YouTube Premium</a></li>
+        <li><img src="icons/yt-creator.png" /> <a href="#">Creator Studio</a></li>
+        <li><img src="icons/yt-music.png" /> <a href="#">YouTube Music</a></li>
+        <li><img src="icons/yt-kids.png" /> <a href="#">YouTube Kids</a></li>
+        <li><img src="icons/yt-tv.png" /> <a href="#">YouTube TV</a></li>
+      </ul>
+      <hr>
+      <ul>
+        <li><img src="icons/settings.svg" /> <a href="#">Settings</a></li>
+        <li><img src="icons/report.svg" /> <a href="#">Report history</a></li>
+        <li><img src="icons/help.svg" /> <a href="#">Help</a></li>
+        <li><img src="icons/feedback.svg" /> <a href="#">Send feedback</a></li>
+      </ul>
+      <footer>
+        <p>
+          <small>About Press Copyright <br>
+            Contact us Creator Advertise<br>
+            Developers
+            <br><br>
+            Terms Privacy Policy & Safety <br>
+            How YouTube works <br>
+            Test new features</small>
+        </p>
+      </footer>
+    </nav>
+  </div>
+
+  <!-- <span style="font-size:35px;cursor:pointer"
+		>
+		≡
+	</span> -->
+
+
+
+  <!-- <main>
     <div class="filters">
       <button class="filter-options active">all</button>
       <button class="filter-options">CSS</button>
@@ -107,7 +121,8 @@
       <button class="filter-options">trending</button>
   </div>
   <div class="video-container"></div>
-   </main>
-   <script src="script.js"></script>
-  </body>
+   </main>  -->
+  <script src="script.js"></script>
+</body>
+
 </html>
