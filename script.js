@@ -17,24 +17,25 @@ const filters = document.querySelector('.filters');
 const main = document.querySelector('main');
 
 function toggleSideBar() {
-    if (document.body.clientWidth > 900) {
+    if (document.body.clientWidth > 900)
         sideBar.classList.toggle('hideAny');
-        // filters.classList.toggle('changeFilterWidth');
-        // main.classList.toggle('changeMainWidth');
-    }
     else
         openNav();
 }
 
 const sideBarContainer = document.querySelector('.overlay');
 function openNav() {
+    document.querySelector(".closebtn").style.visibility = 'visible';
+    document.querySelector(".overlay-top>img").classList.toggle('hideAny');
     sideBarContainer.style.width = '240px';
-    document.querySelector(".closebtn").style.display = 'block';
+    // document.querySelector(".overlay-top>img").style.visibility = 'visible';
 }
 
 function closeNav() {
+    console.log("hello");
     sideBarContainer.style.width = '0';
-    document.querySelector('.closebtn').style.display = 'none';
+    document.querySelector('.closebtn').style.visibility = 'hidden';
+    document.querySelector(".overlay-top>img").classList.toggle('hideAny');
 }
 
 /* for video containers */
@@ -73,12 +74,12 @@ const getChannelIcon = (videoData) => {
 
 const makeVideoCard = (data) => {
     videoContainer.innerHTML += `
-    <article class="video" onclick="location.href = 'https://youtube.com/watch?v=${data.id}'">
+    <article class="video" onclick="location.href = 'https://youtube.com/watch?v=${data.id}'">    
         <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
         <div class="content">
             <img src="${data.channelThumbnail}" class="channel-icon" alt="">
             <div class="info">
-                <h6 class="title">${data.snippet.title}</h6>
+                <h4 class="title">${data.snippet.title}</h4>
                 <p class="channel-name">${data.snippet.channelTitle}</p>
             </div>
         </div>
@@ -96,13 +97,22 @@ searchBtn.addEventListener('click', () => {
     }
 });
 
+/* To maintain responsivenes while resizing window*/
 function init() {
     window.onresize = () => {
         //window.innerWidth = document.body.clientWidth 
-        if (document.body.clientWidth > 900)
-            document.querySelector('.closebtn').style.display = 'none';
 
-        if (document.body.clientWidth <= 900)
+        if (document.body.clientWidth > 900) {
+            alert("overlay > img(app-logo) is none \n closebtn hidded \n sidebarconatiner h:0 \n overlay-top h: 0");
+            document.querySelector('.closebtn').style.visibility = 'hidden';
+            document.querySelector('.overlay-top>img').classList.toggle('hideAny');
+            sideBarContainer.style.height = '0px';
+            document.querySelector('.overlay-top').style.height = '0px';
+        }
+        if (document.body.clientWidth <= 900) {
             sideBarContainer.style.width = '0';
+            sideBarContainer.style.height = '100%';
+            document.querySelector('.overlay-top').style.height = 'auto';
+        }
     };
 }

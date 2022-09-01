@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-html {
-  /* background-color: yellow; */
+/* html {
+  background-color: yellow;
 }
 
 body {
@@ -50,7 +50,7 @@ main {
 
 .filters {
   background-color: lightgreen !important;
-}
+} */
 
 /* applies to all elements */
 * {
@@ -70,6 +70,19 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
   background-color: black;
+}
+
+/* for hiding heading */
+.hideTOC {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 /*** applies to header ***/
@@ -118,7 +131,7 @@ header button>img {
 }
 
 /* applies to start */
-#app-logo {
+.app-logo {
   width: 120px;
   height: 30px;
 }
@@ -205,14 +218,25 @@ nav::-webkit-scrollbar-thumb {
   width: 0px;
 }
 
-/* applies to closebtn */
+/* applies to sidebar closebtn */
 .closebtn {
+  visibility: hidden;
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
+/* applies to any block that needs to hide (used this to hide navbar & app-logo) */
+.hideAny {
   display: none;
 }
 
-/* applies to any block that needs to hide (I used this to hide navbar) */
-.hideAny {
-  display: none;
+.overlay {
+  height: 0;
+}
+
+.overlay-top {
+  height: 0;
 }
 
 /* applies to nav list */
@@ -278,11 +302,6 @@ nav>footer>p {
     /* height: 100px; */
   }
 
-  /* applies to closebtn */
-  .closebtn {
-    display: none;
-  }
-
   /* applies to nav list */
   nav>ul>li {
     display: flex;
@@ -338,12 +357,21 @@ nav>footer>p {
     transition: 0.2s;
   }
 
+  .overlay-top {
+    display: flex;
+    gap: 6px;
+  }
+
+  .overlay-top>img {
+    margin-top: 13px;
+  }
+
   .overlay-content {
     /* position: relative;
     top: 61px;
     left: 16px; */
     padding-bottom: 20px;
-    margin-top: 29px;
+    margin-top: 57px;
     margin-left: 16px;
     width: 93.33%;
     height: calc(100% - 70px);
@@ -406,7 +434,6 @@ main {
 
 .filters::-webkit-scrollbar {
   height: 3px;
-  background-color: lightsalmon;
 }
 
 .filters::-webkit-scrollbar-thumb {

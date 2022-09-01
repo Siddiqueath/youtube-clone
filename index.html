@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Youtube Clone</title>
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="icons/yt-favicon.svg" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body onload="init();">
-
+  <h1 class="hideTOC">Youtube App</h1>
   <header>
     <div id="start">
       <button><img id="burger-menu" src="icons/menu.svg"></button>
-      <img id="app-logo" src="icons/yt-logo.svg">
+      <img class="app-logo" src="icons/yt-logo.svg">
     </div>
     <div id="center">
       <img src="icons/search.svg">
@@ -31,12 +31,15 @@
   </header>
 
   <div class="overlay">
+    <div class="overlay-top">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+        <img id="burger-menu" style="width:25px; height:25px;" src="icons/menu.svg">
+      </a>
+      <img class="app-logo hideAny" src="icons/yt-logo.svg" />
+    </div>
 
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
-      <img id="burger-menu" style="width:25px; height:25px;" src="icons/menu.svg">
-    </a>
-    <!-- <img id="app-logo" src="icons/yt-logo.svg"> -->
     <nav class="overlay-content" class="scrollbar-w-8">
+      <h2 class="hideTOC">Navigation Menu</h2>
       <ul>
         <li id="active"><img src="icons/home.svg" /> <a href="#">Home</a></li>
         <li><img src="icons/explore.svg" /> <a href="#">Explore</a></li>
@@ -104,6 +107,7 @@
 
   <main>
     <section class="filters">
+      <h3 class="hideTOC">Filters</h3>
       <button class="filter-options active">all</button>
       <button class="filter-options">CSS</button>
       <button class="filter-options">web development</button>
@@ -119,7 +123,9 @@
       <button class="filter-options">Mathematics</button>
     </section>
 
-    <section class="video-container"></section>
+    <section class="video-container">
+      <h3 class="hideTOC">Video's</h3>
+    </section>
   </main>
   <script src="script.js"></script>
 </body>
