@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body onresize="reportSize()">
+<body onload="init();">
 
   <header>
     <div id="start">
@@ -19,21 +19,23 @@
     </div>
     <div id="center">
       <img src="icons/search.svg">
-      <input id="search-bar" type="text" placeholder="Search">
-      <button id="search-btn" type="submit"><img src="icons/search.svg"></button>
-      <button><img src="icons/mic.svg"></button>
+      <input id="search-bar" class="hide462" type="text" placeholder="Search">
+      <button id="search-btn" class="hide462" type="submit"><img src="icons/search.svg"></button>
+      <button class="hide462"><img src="icons/mic.svg"></button>
     </div>
     <div id="end">
-      <button><img src="icons/upload.svg"></button>
-      <button><img src="icons/notification.svg"></button>
+      <button class="hide462"><img src="icons/upload.svg"></button>
+      <button class="hide462"><img src="icons/notification.svg"></button>
       <img src="icons/profile.jpg">
     </div>
   </header>
 
   <div class="overlay">
+
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
       <img id="burger-menu" style="width:25px; height:25px;" src="icons/menu.svg">
     </a>
+    <!-- <img id="app-logo" src="icons/yt-logo.svg"> -->
     <nav class="overlay-content" class="scrollbar-w-8">
       <ul>
         <li id="active"><img src="icons/home.svg" /> <a href="#">Home</a></li>
@@ -100,15 +102,8 @@
     </nav>
   </div>
 
-  <!-- <span style="font-size:35px;cursor:pointer"
-		>
-		≡
-	</span> -->
-
-
-
-  <!-- <main>
-    <div class="filters">
+  <main>
+    <section class="filters">
       <button class="filter-options active">all</button>
       <button class="filter-options">CSS</button>
       <button class="filter-options">web development</button>
@@ -119,9 +114,13 @@
       <button class="filter-options">html</button>
       <button class="filter-options">machine learning</button>
       <button class="filter-options">trending</button>
-  </div>
-  <div class="video-container"></div>
-   </main>  -->
+      <button class="filter-options">music</button>
+      <button class="filter-options">chess</button>
+      <button class="filter-options">Mathematics</button>
+    </section>
+
+    <section class="video-container"></section>
+  </main>
   <script src="script.js"></script>
 </body>
 

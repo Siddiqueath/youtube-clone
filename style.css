@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/* html {
-  background-color: yellow;
+html {
+  /* background-color: yellow; */
 }
 
 body {
@@ -40,9 +40,17 @@ main {
   background-color: lightsalmon;
 }
 
+.video-container {
+  background-color: lightgrey;
+}
+
+.video {
+  background-color: lightblue;
+}
+
 .filters {
   background-color: lightgreen !important;
-} */
+}
 
 /* applies to all elements */
 * {
@@ -64,19 +72,21 @@ body::-webkit-scrollbar-thumb {
   background-color: black;
 }
 
-/* applies to header */
+/*** applies to header ***/
 header {
   max-width: calc(100vw);
-  min-width: fit-content;
+  min-width: min-content;
   height: 56px;
   padding: 0px 16px;
   display: flex;
   align-items: center;
 }
 
-@media only screen and (max-width: 155px) {
-  #search-bar {
-    visibility: hidden;
+@media only screen and (max-width: 462px) {
+
+  #search-bar,
+  .hide462 {
+    display: none;
   }
 }
 
@@ -102,7 +112,7 @@ header button>img {
   height: 25px;
 }
 
-/* applies to start*/
+/** applies to start **/
 #start {
   flex: 1;
 }
@@ -113,7 +123,7 @@ header button>img {
   height: 30px;
 }
 
-/* applies to center */
+/** applies to center **/
 #center {
   flex: 2;
 }
@@ -156,7 +166,7 @@ header button>img {
   cursor: pointer;
 }
 
-/* applies to end */
+/** applies to end **/
 #end {
   flex: 1;
   gap: 10px;
@@ -170,7 +180,7 @@ header button>img {
   cursor: pointer;
 }
 
-/* applies to nav */
+/*** applies to nav ***/
 nav {
   float: left;
   width: 240px;
@@ -266,10 +276,6 @@ nav>footer>p {
     background-color: #828282;
     border-radius: 10px;
     /* height: 100px; */
-  }
-
-  .scroll-bar-w-0::-webkit-scrollbar {
-    width: 0px;
   }
 
   /* applies to closebtn */
@@ -370,4 +376,128 @@ nav>footer>p {
     /* shows 3px extra so set 24 if 27? */
     /* font-size: 70px; */
   }
+}
+
+/*** applies for main ***/
+main {
+  max-height: calc(100% - 56px);
+  min-height: calc(100% - 56px);
+  overflow-y: hidden;
+}
+
+/** applies to filter **/
+.filters {
+  height: 56px;
+  padding: 30px 16px;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+/* used for toggling main width in script */
+.changeMainWidth {
+  width: 100%;
+  /* why important? !important because this style is overrided by .filters class to avoid that*/
+}
+
+.filters::-webkit-scrollbar {
+  height: 3px;
+  background-color: lightsalmon;
+}
+
+.filters::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #828282;
+}
+
+.filter-options {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border-radius: 50px;
+  background: #f0f0f0;
+  border: 1px solid #dbdbdb;
+  text-transform: capitalize;
+  color: #242424;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filter-options.active {
+  color: #fff;
+  background: #242424;
+}
+
+/* for video container */
+.video-container {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  column-gap: 16px;
+  padding: 0px 14px;
+  max-height: calc(100vh - 133px);
+  min-height: calc(100vh - 133px);
+  overflow-y: auto;
+}
+
+.video-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.video-container::-webkit-scrollbar-thumb {
+  background-color: #828282;
+  border-radius: 10px;
+}
+
+.video {
+  height: max-content;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* applies to content class*/
+.content {
+  max-width: 100%;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+/* applies to info class */
+.info {
+  max-width: calc(100% - 40px);
+}
+
+.channel-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* margin-right: 10px; */
+}
+
+/* applies to video title */
+.title {
+  font-size: 14px;
+  max-width: 100%;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.channel-name {
+  font-size: 13px;
+  margin: 2px 0;
+  color: #979797;
 }
